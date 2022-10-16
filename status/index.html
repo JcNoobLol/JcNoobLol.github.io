@@ -1,0 +1,29 @@
+<body>
+    <button class="check" onclick="check()">Check the page status</button>
+    <p id="main"></p>
+    <p id="status"></p>
+</body>
+<script>
+ function  check(){
+    fetch("https://jcnooblol.github.io/").then((res) => {
+        document.getElementById("main").innerHTML = `Ping: ${res.status}`
+        document.getElementById("status").innerHTML = res.statusText
+    })
+ }
+</script>
+<style>
+    body{
+        background-color: #000;
+        color: #fff;
+        font-family: 'Roboto',sans-serif;
+    }
+    button{
+        cursor: pointer;
+        background-color: #000;
+        color: #fff;
+        transition: ease-in-out .33s;
+    }
+    button:hover{
+        background-color: blue;
+    }
+</style>
