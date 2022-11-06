@@ -47,7 +47,6 @@
   type: "GET",
   url: "https://api.mcsrvstat.us/2/bangus.aternos.host:27870",
   success: function(data) {
-   console.log(data)
    let server_online = document.getElementById("server-sta").innerHTML = data.online ? 'Up <span class="up"></span>' : 'Down <span class="down"></span>'
    let max = document.getElementById("max") .innerHTML = data.players.max
    let plr = document.getElementById("plr") .innerHTML = data.players.online
