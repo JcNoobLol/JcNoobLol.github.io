@@ -7,7 +7,7 @@
 
         <div class="server-status">
             <p>Server image:</p>
-            <img src="https://cdn.discordapp.com/attachments/988389417284665384/1038656980090359889/mc-icon.png" style="border-radius: 5px;" width="300">
+            <p id="icon"></p>
             <p>Server Online:</p>  <p id="server-sta"></p>
             <p>Max Player:</p> <p id="max"></p>
             <p>Player Online:</p> <p id="plr"></p>
@@ -41,6 +41,10 @@
       margin-bottom: -20px;
     }
   }
+  img{
+    border-radius: 5px;
+    width: 300px;
+  }
 </style>
 <script>
    $.ajax({
@@ -58,4 +62,12 @@
 setTimeout(function(){
    window.location.reload(10);
 }, 5000);
+
+$.ajax({
+  type: "GET",
+   url: "https://assets-jcnooblol.oki2.repl.co/asset/main.json",
+   success: function(icon){
+     document.getElementById("icon").innerHTML = `<img src='${icon.mc_icon}' >`
+   }
+})
 </script>
