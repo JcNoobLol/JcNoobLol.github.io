@@ -11,6 +11,7 @@
             <p>Server Online:</p>  <p id="server-sta"></p>
             <p>Max Player:</p> <p id="max"></p>
             <p>Player Online:</p> <p id="plr"></p>
+            <p>Version:</p><p id="version"></p>
     </div>
 </body>
 <style>
@@ -49,19 +50,16 @@
 <script>
    $.ajax({
   type: "GET",
-  url: "https://api.mcsrvstat.us/2/bangus.aternos.host:27870",
+  url: "https://api.mcsrvstat.us/2/JcCumserver.aternos.me",
   success: function(data) {
    let server_online = document.getElementById("server-sta").innerHTML = data.online ? 'Up <span class="up"></span>' : 'Down <span class="down"></span>'
-   let max = document.getElementById("max") .innerHTML = data.players.max
-   let plr = document.getElementById("plr") .innerHTML = data.players.online
-
+   let max = document.getElementById("max") .innerHTML = data["players"].max
+   let plr = document.getElementById("plr") .innerHTML = data["players"].online
+   let version = document.getElementById("version") .innerHTML = data.version
   },
   dataType: "json"
 });
 
-setTimeout(function(){
-   window.location.reload(10);
-}, 5000);
 
 $.ajax({
   type: "GET",
@@ -70,4 +68,8 @@ $.ajax({
      document.getElementById("icon").innerHTML = `<img src='${icon.mc_icon}' >`
    }
 })
+setTimeout(function(){
+   window.location.reload(10);
+}, 5000);
+
 </script>
