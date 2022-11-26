@@ -1,0 +1,98 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    
+</head>
+<body>
+    <div class="main">
+        <h1>JcIsReal Contact <span style="color:orange">Forum</h1>
+    </div>
+    <BR><BR>
+        <div id="fail"></div>
+        <BR><BR>
+   <form action="https://api.web3forms.com/submit" method="POST" id="form">
+    <input type="hidden" name="access_key" value="50a8a3df-3266-4c70-ae8e-3137f9347f33"/>
+    <p>Full Name:</p>
+    <input type="text" class="txt" name="name" id="user">
+    <p>Email Address</p>
+    <input type="email" class="mail-box" name="email" id="mail">
+    <p>Subject:</p>
+    <input type="text" class="subject" name="subject" id="subject">
+    <br><br>
+    <p>Message:</p>
+    <textarea name="message" id="message"></textarea>
+    <BR><BR>
+    <button type="submit" class="btn"><i class="fa fa-paper-plane-o"></i>Send</button>
+   </form>
+   <div id="result"></div>
+</body>
+<script>
+    let username = document.getElementById("user").value;
+let email = document.getElementById("mail").value;
+let sub = document.getElementById("subject").value;
+let msg = document.getElementById("message").value;
+
+function _0x43f5(){const _0x2a559f=['forEach','form','55602atcpnB','Please\x20wait...','getElementById','application/json','none','77866kHUorC','Uhh\x20i\x20think\x20something\x20went\x20wrong','POST','12qJlfiT','message','then','preventDefault','display','1473030GPrxcP','innerHTML','3648729fHmlEc','6162272lAOBqm','catch','1230JLSWZW','status','7449024FgScxh','5eDNfjX','submit','style','1734383EBImnQ','reset','addEventListener','stringify','12DsArqt'];_0x43f5=function(){return _0x2a559f;};return _0x43f5();}const _0x131a03=_0x5707;function _0x5707(_0x4b505e,_0x19bffa){const _0x43f5af=_0x43f5();return _0x5707=function(_0x570733,_0x2d3471){_0x570733=_0x570733-0xb8;let _0x3485d5=_0x43f5af[_0x570733];return _0x3485d5;},_0x5707(_0x4b505e,_0x19bffa);}(function(_0x2a0255,_0x29c2f5){const _0x53681b=_0x5707,_0x57f54a=_0x2a0255();while(!![]){try{const _0x194981=parseInt(_0x53681b(0xd0))/0x1*(-parseInt(_0x53681b(0xc0))/0x2)+-parseInt(_0x53681b(0xca))/0x3+parseInt(_0x53681b(0xb8))/0x4*(parseInt(_0x53681b(0xc8))/0x5)+-parseInt(_0x53681b(0xc3))/0x6*(-parseInt(_0x53681b(0xd3))/0x7)+-parseInt(_0x53681b(0xcb))/0x8+parseInt(_0x53681b(0xbb))/0x9*(parseInt(_0x53681b(0xcd))/0xa)+parseInt(_0x53681b(0xcf))/0xb;if(_0x194981===_0x29c2f5)break;else _0x57f54a['push'](_0x57f54a['shift']());}catch(_0x1e8e41){_0x57f54a['push'](_0x57f54a['shift']());}}}(_0x43f5,0x9b16a));const form=document['getElementById'](_0x131a03(0xba)),result=document[_0x131a03(0xbd)]('result');form[_0x131a03(0xd5)](_0x131a03(0xd1),function(_0x4840a6){const _0x942494=_0x131a03,_0x4bf799=new FormData(form);_0x4840a6[_0x942494(0xc6)]();var _0x4331d0={};_0x4bf799[_0x942494(0xb9)]((_0x2d2ce1,_0x3e4730)=>{_0x4331d0[_0x3e4730]=_0x2d2ce1;});var _0x4dabaa=JSON[_0x942494(0xd6)](_0x4331d0);result[_0x942494(0xc9)]=_0x942494(0xbc),fetch('https://api.web3forms.com/submit',{'method':_0x942494(0xc2),'headers':{'Content-Type':_0x942494(0xbe),'Accept':_0x942494(0xbe)},'body':_0x4dabaa})[_0x942494(0xc5)](async _0x28034c=>{const _0x2c8a4e=_0x942494;let _0x2ee4a1=await _0x28034c['json']();_0x28034c[_0x2c8a4e(0xce)]==0xc8?result[_0x2c8a4e(0xc9)]=_0x2ee4a1[_0x2c8a4e(0xc4)]:(console['log'](_0x28034c),result[_0x2c8a4e(0xc9)]=_0x2ee4a1[_0x2c8a4e(0xc4)]);})[_0x942494(0xcc)](_0x1d808d=>{const _0x20007f=_0x942494;console['log'](_0x1d808d),result[_0x20007f(0xc9)]=_0x20007f(0xc1);})[_0x942494(0xc5)](function(){const _0x92fae4=_0x942494;form[_0x92fae4(0xd4)](),setTimeout(()=>{const _0x3e0b13=_0x92fae4;result[_0x3e0b13(0xd2)][_0x3e0b13(0xc7)]=_0x3e0b13(0xbf);},0x1388);});})
+
+</script>
+<style>
+    body{background-color: #000; color: #ffff; font-family: 'Roboto',sans-serif;}
+    .main{text-align: center; border: 3px solid #FFF; border-radius: 5px;}
+    .btn{
+        border: none;
+        border-radius: 5px;
+        background-color: aqua;
+        color: #fff;
+        font-size: 30px;
+        cursor: pointer;
+        transition: ease-in 0.3s;
+    }
+   .btn:hover{box-shadow: inset 10px 20px 30px 40px  yellowgreen;}
+    .mail-box{
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        border: 5px solid #FFF;
+        background-color: transparent;
+        color: #fff;
+        width: 544px;
+        letter-spacing: 1px;
+    }
+    .txt{
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        border: 5px solid #FFF;
+        background-color: transparent;
+        color: #fff;
+        width: 544px;
+        letter-spacing: 1px;
+    }
+    .subject{
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        border: 5px solid #FFF;
+        background-color: transparent;
+        color: #fff;
+        width: 544px;
+        letter-spacing: 1px;
+    }
+    textarea{
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        border: 5px solid #FFF;
+        background-color: transparent;
+        color: #fff;
+        width: 544px;
+        letter-spacing: 1px;
+    }
+    @media only screen and (max-width: 600px) {
+        .subject{width: 181px; height: 37px;}.txt{width: 181px; height: 37px;}.mail-box{width: 181px; height: 37px;} 
+        textarea{width: 181px; height: 37px;}
+    }
+    form{align-items: center; text-align: center;}
+    
+</style>

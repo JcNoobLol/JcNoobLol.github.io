@@ -1,0 +1,85 @@
+<head>
+    <title>JcIsReal Project Page</title>
+</head>
+<body>
+    <p style="text-align:center; font-size: 20px;">JcIsReal Project</p>
+       
+    <section class="hidden">
+        <h1>Website <span style="color:cornflowerblue;">Project</span></h1>
+    <div>
+        <h1>jcnooblol.github.io Website</h1>
+        <img src="../new-asset/nega.PNG" width="900">
+        <p>I make this Website for no reason just for fun only i just make some cool form </p>
+    <p>URL: <a href="https://jcnooblol.github.io">jcnooblol.github.io</a></p>
+    </div>
+    </section>
+    <section class="hidden">
+        <div>
+            <h1>epic-gamers.oki2.repl.co Website</h1>
+            <img src="../new-asset/epic-gamers-site.PNG" width="900">
+            <p>I make this site cus my friend got discord server and ye.</p>
+            <p>URL: <a href="https://epic-gamers.oki2.repl.co/">epic-gamers.oki2.repl.co</a></p>
+        </div>
+    </section>
+    <section class="hidden">
+            <h1 style="color:cornflowerblue;">Discord Bot Project</h1>
+        <h1>Drip drip disocrd bot</h1>
+        <img src="../new-asset/drip-drip.PNG" width="900">
+        <p>I make this bot cus i want to code and learn javascript</p>
+         <p>Invite: False This bot is private</p>
+    </section>
+    <section class="hidden">
+        <h1>JcNob-Bot</h1>
+        <img src="../new-asset/jc-bot.PNG" width="900">
+        <p>I make this bot cus i wanted to make a solo bot so ye. o ya by the way this bot is stil development</p>
+        <p>Invite: <a href="#">Invite Discord Bot Soon</a></p>
+    </section>
+    <section class="hidden">
+        <h1>SKRRT SKRRT GO BRR BRR   Discord Bot</h1>
+        <img src="../new-asset/skkrt-skkrt.PNG" width="900">
+        <p>Why did i make a second bot? my friend ask me to make a second bot for no reason.</p>
+        <p>Invite: False This bot is private </p>
+    </section>
+    <section class="hidden">
+        <h1>Jotoro Discord Bot</h1>
+        <img src="../new-asset/jotoro.PNG" width="900">
+        <p>I make this bot for new stuff that am making like new database etc </p>
+    </section>
+</body>
+<style>
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+}
+section{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+    font-size: 30px ;
+}
+.hidden{
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(5px);
+    transform: translateY(-100%);
+}.show{opacity: 1;  filter: blur(0);
+    transform: translateY(0);}
+    a{color: limegreen;}a:hover{color: cornflowerblue;}
+    img{border: 3px solid #fff;border-radius: 5px;}
+</style>
+<script>
+    let obeserv = new IntersectionObserver((sic) => {
+    sic.forEach((entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show')
+         }else{
+            entry.target.classList.remove('show')
+         }
+    })
+})
+let hidden = document.querySelectorAll(".hidden")
+hidden.forEach((el) => obeserv.observe(el))
+
+</script>
