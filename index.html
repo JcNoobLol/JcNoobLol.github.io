@@ -1,11 +1,12 @@
-<head><meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <link rel="icon" href="https://assets-jcnooblol.oki2.repl.co/asset/avatar.png">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-</head>
     <title>JcIsReal</title>
-    <body id="#">
+</head>
+<body>
     <div class="main" id="nav">
         <img src="./new-asset/icon.png" style="width:100px ;" >
         <a href="/contact/">Contact me</a>
@@ -14,72 +15,89 @@
         <a href="javascript:void(0)" class="icon" onclick="sic()"><i class="fa fa-bars"></i></a>
     </div>
     <section class="hidden">
-       <div>
-         <img class="pfp" src="https://assets-jcnooblol.oki2.repl.co/asset/avatar.png">
-       </div>
-       <p class="new-ty"></p>
-       <BR><BR>
-        <BR><BR>
-                <BR><BR>
-                    <BR><BR>
-                        <h1>Hello, my name is <span style="color:blueviolet">J.C. I'm trying to make some cool things, but I can't because I'm just getting started. </h1></span>
-        <h1  id="#typing">Im <span style="color: red;" class="auto-ty"></span></h1>
+        <img class="pfp" src="https://assets-jcnooblol.oki2.repl.co/asset/avatar.png">
+        <h1>Hello, my name is <span style="color: blueviolet;">J.C. I'm trying to make some cool things, but I can't because I'm just getting started. </span></h1> 
     </section>
-    <BR><BR>
-        <BR><BR>
-            
-    <BR><BR>
-    <section class="hidden">
-        <h1>If you want to see my cool project that I made,</h1>
-        <a href="/project">Project</a>
-    </section>
-
- <section class="hidden">
-  <BR><BR>
-    <h1>Quick Question</h1>
-    <BR><BR>
-        <p>What programming language do I use?</p>
-        <BR><BR>
-            <div class="js-etc">
-            <img src="./new-asset/html-css-js.png" width="500">
-        </div>
-        <BR><BR>
-            <h1>What is your code editor?</h1>
-            <BR><BR>
-                <div class="js-etc">
-                <img src="./new-asset/vscode.png" width="100">
-                </div>
-                <BR><BR>
-                    <a href="https://code.visualstudio.com/">Virsual Studio Code</a>
-</section>            
-<section class="hidden">
-    <BR><BR>
-        <span style="color: #6cf0b4;"><img src="./new-asset/spotify.png" style="width: 28px;
-            height: 28px;
-            margin-right: 10px;
-        ">Spotify</span>
-        <BR><BR><p id="music-tite"></p>
-        <p id="spo-img"></p> 
-        <div style="align-items:center;text-align:center;">
-        <iframe src="https://spotify-github-profile.vercel.app/api/view.svg?uid=odul82kwgnci0steg1h0nftsz&cover_image=true&theme=novatorem&show_offline=true&background_color=520000&bar_color=53b14f&bar_color_cover=true"></iframe>
-    </div>
-    <a  href="https://spotify-github-profile.vercel.app/api/view?uid=odul82kwgnci0steg1h0nftsz&redirect=true">Music Link</a>
-    </section>
-<section class="hidden">
-    <div   style="align-items: center;text-align:center; margin: 0 300px; border: 3px solid #FFF; border-radius: 5px;">
-        <p>&#169;JcIsReal 2022-2023</p>
-        <a href="#">Back to the top</a>
+    <br><br>
+    <br><br>
+    <br><br>
         <br><br>
-        <a href="./contact/">Contact Us.</a>    
-</section>
-</body>    
+    <section class="hidden">
+        <h1  id="#typing">Im <span style="color: red;" class="auto-ty"></span></h1>
+        <p>If you want to see my cool project that I made,</p>
+        <button class="project" onclick="window.location.href='./project'">Project</button>
+    </section>
+    <section class="hidden">
+        <h1>
+            Quick Question</h1>
+
+            <p>What programming language do I use?
+            </p>
+            <img class="css-blah" src="./new-asset/html-css-js.png" width="300">
+            <p>What is your code editor?</p>
+            <img src="./new-asset/vscode.png" width="200" class="vscode">
+            <br>
+            <a href="https://code.visualstudio.com/" >Visual Studio Code</a>
+    </section>
+    <section class="hidden">
+      <h1>Spotify <img src="./new-asset/spotify.png" width="50"></h1>
+      <iframe class="spotify" src="https://spotify-github-profile.vercel.app/api/view.svg?uid=odul82kwgnci0steg1h0nftsz&cover_image=true&theme=novatorem&show_offline=true&background_color=520000&bar_color=53b14f&bar_color_cover=true"></iframe>
+      <br><br>
+      <a  href="https://spotify-github-profile.vercel.app/api/view?uid=odul82kwgnci0steg1h0nftsz&redirect=true">Music Link</a>
+        <section class="hidden">
+            <div style="align-items:center;  
+           border-color: white;
+            ">
+            <p>&#169;JcIsReal 2022-2023</p>
+            <a href="#">Back To top.</a>
+            <br><br>
+            <a href="./contact/">Contact Us.</a>
+        </div>
+        </section>
+    </body>
 <style>
-    body{background-color: #000; color: #fff; font-family: 'Roboto',sans-serif;}
+    body{
+        background-color: #000;
+        color: #fff;
+        font-family: 'Ubantu',sans-serif;
+    }
+    .hidden{
+        align-items: center;
+        text-align: center;
+        transition: all 2s;
+        opacity: 0;
+         transform: translateX(-100%);
+         filter: blur(100px);
+    }
+    .show{
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+
+    }
+    .project{
+        width: 300px;
+        height: 100px;
+        border: none;
+        color: #fff;
+        background-color: rgb(255,0,68);
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 0 yellow;
+        transition: ease-in 0.3s;
+        font-size: 2rem;
+        outline: none;
+        cursor: pointer;
+    }
+    .spotify{
+        width: 300px;
+       border: none;
+    }
+    .project:hover{  box-shadow: inset 300px 0 0 0  yellow;}
+    .pfp{width: 300px; border-radius: 5px; border: 3px solid #fff; align-items: center;}
     .main{overflow: hidden;  background-color: darkslateblue; border-radius: 5px; font-size: 30px;}
     .main a.active{background-color: yellowgreen; }
     .main .icon{display: none;}
-    .main a{float: right; font-size: 20px; display: block;  text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;
-    }
+    .main a{float: right; font-size: 20px; display: block;  text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;}
     a{
         color: cornflowerblue;
         transition: ease-in 0.3s;
@@ -105,40 +123,17 @@
     display: block;
     text-align: left;
   }
-}
-.hidden{
-    opacity: 0;
-    transition: all 1s;
-    filter: blur(5px);
-    transform: translateY(-100%);
-}
-.show{
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-}
-.music{
-    width: 300px;
-}
-section{text-align: center; align-items: center; display: grid; min-height: 100vh;}
-.spotify-img{border-radius: 5px; border: 5PX solid #FFF;}
-.ttt{border-radius: 5px; border: 5PX solid #FFF;}
-.js-etc{align-items: center; text-align: center;}
-.pfp{
- 
-    border-radius: 100%;
-    border: 3px solid #fff;
-    width: 300px;
-}
-iframe{
-    align-items: center;
-   width: auto;
+  .pfp{width: 200px; border-radius: 5px; border: 3px solid #fff; align-items: center;}
+  .css-blah{width: 200px;}
+  .project{width: 200px;}.vscode{width: 200px;}
+  .spotify{
+    width: 230;
     border: none;
-    font-size: 30px;
+  }
 }
 </style>
 <script>
-   function sic() {
+     function sic() {
   var x = document.getElementById("nav");
   if (x.className === "main") {
     x.className += " responsive";
@@ -146,6 +141,7 @@ iframe{
     x.className = "main";
   }
 }
+
 let obeserv = new IntersectionObserver((sic) => {
     sic.forEach((entry) => {
         if(entry.isIntersecting){
@@ -158,27 +154,10 @@ let obeserv = new IntersectionObserver((sic) => {
 
 let hidden = document.querySelectorAll(".hidden")
 hidden.forEach((el) => obeserv.observe(el))
-
 let typed = new Typed(".auto-ty",{
     strings: ["Simple Dev","Basic Designing UI"],
     typeSpeed: 3,
     backSpeed: 1,
     loop: true
 })
-
-let accessToken  = "Down";
-
-$.ajax({
-    type: "GET",
-  url: "https://api.spotify.com/v1/me/player/currently-playing?market=ES",
-  headers: {
-     'Authorization' : 'Bearer ' + accessToken
-  },
-  success: function(data){
-   
-    document.getElementById("spo-img").innerHTML = `<img class="ttt" src='${data.item.album.images[1].url}'>`
-    document.getElementById("music-tite").innerHTML = `<a  target="_blank" href="${data.item.external_urls.spotify}">${data.item.name}</a> `
-  }
-})
-
 </script>
