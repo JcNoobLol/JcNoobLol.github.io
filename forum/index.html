@@ -1,0 +1,113 @@
+<head>
+    <title>Jacnooblol - Forum</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center;">Forum Page is back! but this forum page is still development.</div>
+    <div class="main">
+        <h1>JacTrash -Forum</h1>
+		<p>Idk(lol)</P></p>
+        <button onclick="window.location.href='./post.html'"  class="ar">Publish an Forum Post</button>
+    </div>
+    <div class="forum">
+        <p>Latest Forum Post:</p>
+        <div id="post" class="post">
+          
+        </div>
+    </div>
+</body>
+<style>
+    body{
+       background-color: #000;
+       color: #fff;
+       font-family: 'Roboto',sans-serif;
+    }
+    .ar{
+        content: "";
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 700;
+    width: 100%;
+    padding: 10px 20px;
+    background: linear-gradient(60deg,#f79533,#f37055,#ef4e7b,#a166ab,#5073b8,#1098ad,#07b39b,#6fba82);
+    animation: gradient 3s ease infinite alternate;
+    background-size: 300% 300%;
+    max-width: 450px;
+    transition: ease-in 0.3s;
+    }
+    .ar:hover{
+        background: linear-gradient(60deg,#f79533,#f37055,#ef4e7b,#a166ab,#5073b8,#1098ad,#07b39b,#6fba82);
+    }
+    .main{
+        background-color: #000;
+			background-size: cover;
+			background-position: center;
+            border: 3px solid #fff;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 32px;
+			font-weight: bold;
+			text-align: center;
+			text-shadow: 2px 2px black;
+    }
+   .forum{
+    align-items: center;
+    text-align: center;
+   }
+   .post{
+    border: 3px solid #fff;
+   }
+</style>
+<script>
+    // Initialize Firebase
+    var firebaseConfig = {
+      apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
+  authDomain: "jac-formdatabase.firebaseapp.com",
+  databaseURL: "https://jac-formdatabase-default-rtdb.firebaseio.com",
+  projectId: "jac-formdatabase",
+  
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the blog posts collection
+    var blogPostsRef = firebase.firestore().collection("blog-posts");
+
+    // Query the collection for all blog posts
+    blogPostsRef.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        // Display each blog post on the page
+        var title = doc.data().title;
+    
+        var author = doc.data().author;
+
+        var blogPost = document.createElement("div");
+        blogPost.classList.add("post");
+
+        var blogPostTitle = document.createElement("h2");
+        blogPostTitle.textContent = title;
+        blogPost.appendChild(blogPostTitle);
+
+        var blogPostMeta = document.createElement("div");
+
+        blogPost.appendChild(blogPostMeta);
+        var readMoreLink = document.createElement("a");
+        readMoreLink.textContent = "Read More";
+        readMoreLink.classList.add("read-more");
+        readMoreLink.href = "/thread.html?id=" + doc.id;
+        blogPost.appendChild(readMoreLink);
+
+        document.getElementById("post").appendChild(blogPost);
+      });
+    });
+  </script>
+</body>
+</html>

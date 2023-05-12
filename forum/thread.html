@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Post</title>
+  </head>
+  <body>
+   
+    <div id="blog-post" class="post"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
+    authDomain: "jac-formdatabase.firebaseapp.com",
+    databaseURL: "https://jac-formdatabase-default-rtdb.firebaseio.com",
+    projectId: "jac-formdatabase",
+    
+      };
+      firebase.initializeApp(firebaseConfig);
+      var urlParams = new URLSearchParams(window.location.search);
+      var postId = urlParams.get("id");
+
+      // Get a reference to the blog posts collection
+      var blogPostsRef = firebase.firestore().collection("blog-posts");
+
+      // Retrieve the blog post with the specified ID
+      blogPostsRef.doc(postId).get().then(function(doc) {
+        if (doc.exists) {
+          // Display the blog post content on the page
+          var title = doc.data().title;
+          var content = doc.data().content;
+          var date = doc.data().date
+          var author = doc.data().author;
+
+          var blogPostTitle = document.createElement("h2");
+          blogPostTitle.textContent = title;
+          document.getElementById("blog-post").appendChild(blogPostTitle);
+
+          var blogPostMeta = document.createElement("div");
+          blogPostMeta.innerHTML = `<i class="fa-solid fa-user"></i>${author} <i class="fa-solid fa-clock"></i> ${date} 
+          <br><br>
+          <br><br>
+          
+          `
+          document.getElementById("blog-post").appendChild(blogPostMeta);
+     
+          var blogPostContent = document.createElement("div");
+          blogPostContent.innerHTML = `
+          <div>
+            ${content}
+            </div>
+            <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        
+            <a href='/'>Go back to main page</a>
+          
+          `
+          document.getElementById("blog-post").appendChild(blogPostContent);
+        } else {
+          // Handle the case where the blog post doesn't exist
+          console.log("No such document!");
+        }
+      }).catch(function(error) {
+        // Handle errors retrieving the blog post from Firebase
+        console.log("Error getting document:", error);
+      });
+    </script>
+  </body>
+</html>
+<style>
+    body{
+        background-color: #000;
+        color: #fff;
+        font-family: 'Ubantu',sans-serif;
+    }
+    .post{
+      align-items: center;
+      text-align: center;
+    }
+</style>

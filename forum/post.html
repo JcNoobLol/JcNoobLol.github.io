@@ -1,0 +1,90 @@
+<head>
+    <title>Post an Article</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+</head>
+<body>
+    <form>
+    <label for="title">Title:</label><br>
+		<input class="text" type="text" id="title" name="title"><br>
+		<label for="content">Content:</label><br>
+		<textarea class="des" id="content" name="content"></textarea><br>
+        <br><br>
+        <p>Author</p>
+        <input class="text" type="text" id="author" name="author"><br>
+		<button class="btn" id="submit" type="submit">Submit</button>
+    </form>
+</body>
+<style>
+    body{
+        background-color: #000;
+        color: #fff;
+        font-family: 'Roboto',sans-serif;
+    }
+    .text{font-size: 30px;border-radius: 5px;border-color: blue; background-color:cornflowerblue; color: #fff;}
+    .des{
+        width: 448px;
+    height: 229px;
+        font-size: 30px;border-radius: 5px;border-color: blue; background-color:cornflowerblue; color: #fff;}
+form{
+    align-items: center;
+    text-align: center;
+}
+.btn{
+    background-color: blue;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+</style>
+
+<script>
+     const firebaseConfig = {
+    apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
+    authDomain: "jac-formdatabase.firebaseapp.com",
+    databaseURL: "https://jac-formdatabase-default-rtdb.firebaseio.com",
+    projectId: "jac-formdatabase",
+    
+  };
+    firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore database
+var db = firebase.firestore();
+
+// Save the blog post data to Firestore
+function saveBlogPost(title, content,author,date) {
+  db.collection("blog-posts").add({
+    title: title,
+    content: content,
+    author: author,
+    date: date
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+    alert("Blog post created successfully!");
+    // Redirect the user to the blog page
+    window.location.href = "/index.html";
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+    alert("An error occurred while creating the blog post.");
+  });
+}
+
+// Add an event listener to the form's submit button
+document.getElementById("submit").addEventListener("click", function(event) {
+  event.preventDefault();
+  const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+const day = String(currentDate.getDate()).padStart(2, '0');
+const formattedDate = `${year}-${month}-${day}`;
+
+  var title = document.getElementById("title").value;
+  var content = document.getElementById("content").value;
+  var author = document.getElementById("author").value
+  saveBlogPost(title, content,author,formattedDate);
+});
+</script>
