@@ -2,6 +2,7 @@
     <title>Post an Article</title>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <form>
@@ -65,7 +66,7 @@ function saveBlogPost(title, content,author,date) {
     console.log("Document written with ID: ", docRef.id);
     alert("Blog post created successfully!");
     // Redirect the user to the blog page
-    window.location.href = "/index.html";
+    window.location.href = "/forum/";
   })
   .catch(function(error) {
     console.error("Error adding document: ", error);
