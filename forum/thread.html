@@ -5,7 +5,7 @@
   </head>
   <body>
    
-    <div id="blog-post" class="post"></div>
+    <div id="post" class="post"></div>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
     <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
       var postId = urlParams.get("id");
 
       // Get a reference to the blog posts collection
-      var blogPostsRef = firebase.firestore().collection("blog-posts");
+      var blogPostsRef = firebase.firestore().collection("forum");
 
       // Retrieve the blog post with the specified ID
       blogPostsRef.doc(postId).get().then(function(doc) {
@@ -37,7 +37,7 @@
 
           var blogPostTitle = document.createElement("h2");
           blogPostTitle.textContent = title;
-          document.getElementById("blog-post").appendChild(blogPostTitle);
+          document.getElementById("post").appendChild(blogPostTitle);
 
           var blogPostMeta = document.createElement("div");
           blogPostMeta.innerHTML = `<i class="fa-solid fa-user"></i>${author} <i class="fa-solid fa-clock"></i> ${date} 
@@ -45,7 +45,7 @@
           <br><br>
           
           `
-          document.getElementById("blog-post").appendChild(blogPostMeta);
+          document.getElementById("post").appendChild(blogPostMeta);
      
           var blogPostContent = document.createElement("div");
           blogPostContent.innerHTML = `
@@ -61,7 +61,7 @@
             <a href='/'>Go back to main page</a>
           
           `
-          document.getElementById("blog-post").appendChild(blogPostContent);
+          document.getElementById("post").appendChild(blogPostContent);
         } else {
           // Handle the case where the blog post doesn't exist
           console.log("No such document!");
