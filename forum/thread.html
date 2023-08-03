@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog Post</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
    
@@ -45,7 +45,7 @@
           blogPostMeta.innerHTML = `<i class="fa-solid fa-user"></i>${author} <i class="fa-solid fa-clock"></i> ${date} 
           <br><br>
           <br><br>
-          
+          <title>${title}</title>
           `
           document.getElementById("post").appendChild(blogPostMeta);
      
@@ -63,6 +63,7 @@
             <a href='/'>Go back to main page</a>
           
           `
+
           document.getElementById("post").appendChild(blogPostContent);
         } else {
           // Handle the case where the blog post doesn't exist
