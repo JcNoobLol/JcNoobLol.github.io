@@ -7,17 +7,20 @@
 </head>
 
 <body><br><br>
+ 
     <div class="main">
+      <div style="border:3px solid #fff;" id="noti"></div>
         <a href="/">
         <i class="fa-solid fa-house"></i>Home</a>
             <a href="./post.html">
             <i class="fa-solid fa-list"></i>Post</a>
             <a href="./new-post.html">
+              
                 <i class="fa-solid fa-plus"></i>New Post</a>
                 
     </div>
     <div class="forum" id="forum">
-            <h1>Post</h1>
+        
       
     </div>
 </body>
@@ -83,6 +86,10 @@
         document.getElementById("forum").appendChild(blogPost);
       });
     });
+    fetch("https://jc-blakman-rel.oki2.repl.co/api/v3/forum_notification").then((res) => {
+        document.getElementById("noti").innerHTML = `Ping: ${res.res}`
+    })
+ 
   </script>
 </body>
 
