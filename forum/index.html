@@ -86,7 +86,7 @@
         document.getElementById("forum").appendChild(blogPost);
       });
     });
-    fetch("./noti.txt").then((res) => {
+    fetch("noti.txt").then((res) => {
           if (!res.ok) {
             throw new Error('Network response was not ok');
           }
