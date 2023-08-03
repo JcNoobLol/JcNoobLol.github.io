@@ -91,7 +91,7 @@ function saveBlogPost(title, content,author,date) {
 }
 
 // Add an event listener to the form's submit button
-document.getElementById("post").addEventListener("click", function(event) {
+document.getElementById("submit").addEventListener("click", function(event) {
   event.preventDefault();
   const currentDate = new Date();
 const year = currentDate.getFullYear();
@@ -104,4 +104,4 @@ const formattedDate = `${year}-${month}-${day}`;
   var author = document.getElementById("author").value
   saveBlogPost(title, content,author,formattedDate);
 });
-
+</script>
