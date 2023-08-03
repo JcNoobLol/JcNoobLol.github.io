@@ -86,6 +86,19 @@
         document.getElementById("forum").appendChild(blogPost);
       });
     });
+    fetch("./noti.txt").then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.text();
+        })
+        .then(data => {
+          // Display the contents of the text file in the output div
+          const outputDiv = document.getElementById('noti');
+          outputDiv.textContent = data;
+        })
+  
+ 
   </script>
 </body>
 
