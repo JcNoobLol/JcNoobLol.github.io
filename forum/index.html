@@ -4,6 +4,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/forum_logo.png">
 </head>
 
 <body><br><br>
@@ -86,7 +87,7 @@
         document.getElementById("forum").appendChild(blogPost);
       });
     });
-    fetch("noti.txt").then((res) => {
+    fetch("./noti.txt").then((res) => {
           if (!res.ok) {
             throw new Error('Network response was not ok');
           }
