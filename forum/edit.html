@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Forum Post</title>
+  <!-- Include Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+  <!-- Your Firebase configuration script (replace with your actual config) -->
+  <script>
+    // Initialize Firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
+    authDomain: "jac-formdatabase.firebaseapp.com",
+    databaseURL: "https://jac-formdatabase-default-rtdb.firebaseio.com",
+    projectId: "jac-formdatabase",
+      };
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the Firestore database
+    const db = firebase.firestore();
+
+    // Function to save edited content to Firestore
+    function save() {
+      const editedContent = document.getElementById('editableContent').value;
+      let id = document.getElementById("id").value
+      const postRef = db.collection('forum').doc(`${id}`);
+      postRef.update({
+        content: editedContent,
+        // You can add other fields here if your document structure requires it.
+      })
+      .then(() => {
+         document.getElementById("noti").innerHTML = `Forum has been edited!`
+         document.getElementById("pro").innerHTML = `Forum link <a href='https://jcnooblol.github.io/forum/thread.html?id=B0d3LgLWq4R5nOZgIZBa'>Click me </a>`
+      })
+      .catch((error) => {
+        console.error('Error updating blog post:', error);
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <div id="noti" class="noti"></div>
+  <div class="main">
+  <p>Forum Id</p>
+  <input type="text" id="id" class="id">
+  <h2>Content (HTML SUPPORT)</h2>
+  <textarea id="editableContent">
+  </textarea><br><br>
+  <button onclick="save()" class="btn">Save Changes</button>
+  <div id="pro"></div>
+</div>
+</body>
+</html>
+<style>
+ body{
+  background-color: #111;
+  color: #fff;
+  font-family: 'Roboto',sans-serif;
+ }
+ .main{align-items: center;text-align: center;}
+ textarea{
+  width: 557px;
+    height: 143px;
+    border: 1px solid rgb(40,40,40);
+    padding: 10px;
+    background-color: rgb(40,40,40);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #FFF;
+ }
+.id{
+  border: 3px solid #ffff;
+  background-color: rgb(40,40,40);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 30px;
+}
+p{font-size: 20px;}
+.noti{background-color: #111; color: green; font-family: 'Roboto',sans-serif; text-align: center;}
+.btn{margin-top: 10px; padding: 8px 16px; font-size: 16px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; cursor: pointer;}
+</style>
