@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  </head>
+  <body>
+   
+    <div id="post" class="post"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
+    authDomain: "jac-formdatabase.firebaseapp.com",
+    databaseURL: "https://jac-formdatabase-default-rtdb.firebaseio.com",
+    projectId: "jac-formdatabase",
+      };
+      firebase.initializeApp(firebaseConfig);
+      var urlParams = new URLSearchParams(window.location.search);
+      var postId = urlParams.get("id");
+
+      // Get a reference to the blog posts collection
+      var blogPostsRef = firebase.firestore().collection("jac-blogpost");
+      // Retrieve the blog post with the specified ID
+      blogPostsRef.doc(postId).get().then(function(doc) {
+        if (doc.exists) {
+          // Display the blog post content on the page
+          var title = doc.data().title;
+          var content = doc.data().content;
+          let img = doc.data().imageURL;
+          var date = doc.data().date
+          var author = doc.data().author;
+
+        
+
+          var blogPostMeta = document.createElement("div");
+          blogPostMeta.innerHTML = ` 
+          <title>${title} - JacBlogpost</title>
+          `
+          document.getElementById("post").appendChild(blogPostMeta);
+     
+          var blogPostContent = document.createElement("div");
+          blogPostContent.innerHTML = `
+          <h1>Title: ${title}</h2>
+            <img src='${img}' alt='Blog post image' width='300'>
+          <div>
+            <br>
+            Description: ${content}
+            </div>
+           
+            <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        
+
+
+                        <h2>Comments</h2>
+
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" class='name' required><br>
+      <label for="comment">Comment:</label><br>
+      <textarea id="comment" class='comments' name="comment" rows="4" cols="50" required></textarea><br>
+      <button type="submit" id="submit-2" class='btn-section'onclick="ok()">Submit Comment</button>
+          <p>Comment Section</p>
+      <div id="comments" class='comment-section'></div>
+            <a href='/'>Go back to main page</a>
+          
+          `
+
+          document.getElementById("post").appendChild(blogPostContent);
+        } else {
+          // Handle the case where the blog post doesn't exist
+          console.log("No such document!");
+        }
+      }).catch(function(error) {
+        // Handle errors retrieving the blog post from Firebase
+        console.log("Error getting document:", error);
+      });
+      //comments
+         function ok(){
+        var name = document.getElementById("name").value;
+        var comment = document.getElementById("comment").value;
+        blogPostsRef.doc(postId).update({
+          comments: firebase.firestore.FieldValue.arrayUnion({ name, comment, timestamp: firebase.firestore.Timestamp.now() })
+        }).then(function() {
+          console.log("Comment added successfully!");
+          document.getElementById("name").value = "";
+          document.getElementById("comment").value = "";
+          displayComments();
+        }).catch(function(error) {
+          console.error("Error adding comment: ", error);
+        });
+      }
+      function displayComments() {
+        blogPostsRef.doc(postId).get().then(function(doc) {
+          var comments = doc.exists && doc.data().comments || [];
+          document.getElementById("comments").innerHTML = comments.map(c => `<div><strong>${c.name}</strong>: ${c.comment}</div>`).join("");
+        }).catch(function(error) {
+          console.error("Error getting comments: ", error);
+        });
+      }
+      displayComments();
+      //end
+    </script>
+   
+  </body>
+</html>
+<style>
+    body{
+        background-color: #000;
+        color: #fff;
+        font-family: 'Ubantu',sans-serif;
+        font-size: 20px;
+    }
+    .post{
+      align-items: center;
+      text-align: center;
+    }
+    .comment-section{border: 3px solid #fff;text-align: center;
+    }
+    .comments{color:#fff;border-radius: 5px;border: 3px solid #fff; background-color: burlywood;}
+    .name{color:#fff;border-radius: 5px;border: 3px solid #fff; background-color: burlywood;}
+    .btn-section{background-color: blueviolet; color: #fff;cursor: pointer;  border: none; border-radius: 5px; padding: 14px 16px; font-size: 20px;}
+</style>
