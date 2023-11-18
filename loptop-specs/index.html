@@ -1,0 +1,61 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loptop specs 💀</title>
+    <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="hidden">
+       <h1>My Loptop specs:  </h1>
+       <h1>Main</h1>
+       <img src="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/IMG20231008093710.jpg" width="400">
+       <p> <i class="fa-solid fa-laptop fa-fade"></i>System Model: Aspire A514-53</p>
+       <p><i class="fa-solid fa-microchip fa-fade"></i> CPU: Intel(R) Core(Tm) i3-100G1 CPU @ 1.20GHz,1190 Mhz,2Core(s)</p>
+        <p><i class="fa-solid fa-memory fa-fade"></i></i> RAM: 4GB (Upgrading 8gb Soon <img src='https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/ok.png' width="20">)</p>
+        <p><i class="fa-solid fa-hard-drive"></i> Storage: 1TB HHD  128 SSD</p>
+        <p><i class="fa-solid fa-tv fa-flip"></i> Screen: 60HZ</p>
+    </section>
+    <section class="hidden">
+        <h1>real hard drive shot</h1>
+        <img src="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/IMG20231011100628.jpg" width="500">
+        </section>
+</body>
+<script>
+    let oberv = new IntersectionObserver((entires) => {
+        entires.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+            }else{
+                entry.target.classList.remove('show')
+            }
+        })
+    })
+    let hidden = document.querySelectorAll('.hidden')
+    hidden.forEach((el) =>  oberv.observe(el))
+</script>
+<style>
+body{
+    background-color: #131316;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    padding: 0;
+    margin: 0;
+}
+section{
+    display: grid;
+    place-items: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.hidden{
+    opacity: 0;
+   transition: all 5s;
+   filter: blur(5px);
+   transform:  translateY(-100%)
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+</style>
