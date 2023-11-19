@@ -7,14 +7,16 @@
     <link rel="icon" type="image/x-icon" href="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/forum_logo.png">
 </head>
 
-<body><br><br>
- 
-    <div class="main">
+<body> 
+  <div class="main">
+    <p>main<span style="color:cornflowerblue">jcmainclr.xyz</span></p>
+    <p>A forum just idk real.</p>
+</div>  
+    <div class="main2">
       <div style="border:3px solid #fff;" id="noti"></div>
         <a href="/">
         <i class="fa-solid fa-house"></i>Home</a>
-            <a href="./post.html">
-            <i class="fa-solid fa-list"></i>Post</a>
+          
             <a href="./new-post.html">
                 <i class="fa-solid fa-plus"></i>New Post</a>
                 <a href="./edit.html">
@@ -22,8 +24,6 @@
 
     </div>
     <div class="forum" id="forum">
-        
-      
     </div>
 </body>
 <style>
@@ -32,7 +32,7 @@
        color: #fff;
        font-family: 'Roboto',sans-serif;
     }
-    .main{
+    .main2{
         align-items: center;
         text-align: center;
         font-size: 20px;
@@ -46,6 +46,25 @@
     border: 3px solid #fff;
    }
    a{ color: #fff; cursor: pointer; text-decoration: none;}a:hover{color: cornflowerblue;}
+  
+    .main p{font-size: 20px; animation: fuk 3s; text-align: center;}
+    @keyframes fuk {
+        0%{letter-spacing: 25px; margin-bottom: -40px;}
+        30%{letter-spacing: 25px; margin-bottom: -40px;}
+        85%{letter-spacing: 8px; margin-bottom: -40px;}
+        95%{letter-spacing: 3px; margin-bottom: -40px;}
+    }
+    .forum{
+      opacity: 0;
+      transition: all 3s;
+      transform: translateY(-100%);
+      filter: blur(10px);
+    }
+    .show{
+      opacity: 1;
+      transform: translateY(0);
+    filter: blur(0);
+    }
 </style>
 <script>
     // Initialize Firebase
@@ -100,7 +119,17 @@
           outputDiv.textContent = data;
         })
   
- 
+        let oberv = new IntersectionObserver((entires) => {
+        entires.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+            }else{
+                entry.target.classList.remove('show')
+            }
+        })
+    })
+    let hidden = document.querySelectorAll('.forum')
+    hidden.forEach((el) =>  oberv.observe(el))
   </script>
 </body>
 
