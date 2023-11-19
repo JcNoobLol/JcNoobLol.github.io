@@ -43,10 +43,11 @@
         background: #111;
         font-family: 'Ubantu',sans-serif;
     }
-.main{align-items: center;text-align: center; }
+.main{align-items: center;text-align: center;  }
 .show{
-    
-    transform: translateY(-100%);
+    opacity: 1;
+    transform: translateY(0);
+     
 }
 .text-des{color: #fff;}
 .loader-wrapper {
@@ -76,8 +77,8 @@ a:hover{color:aquamarine;}
 </style>
 <script>
 //load a random image while website is loading ye
-let list = ["./assets/img/pro.PNG","./assets/img/rel.webp","https://cdn.discordapp.com/attachments/1023930878705008720/1082239290915954750/FB_IMG_1677837320476.jpg",'https://cdn.discordapp.com/attachments/1023930878705008720/1082252942222041088/IMG_20230306_121123_515.jpg','https://cdn.discordapp.com/attachments/1023930878705008720/1082258320934567947/0g5rTiRsmW5c_d5sVMVgFT97tdYVkvoNKkj8LtYSUarP8cDyQsCmacj8MwQL2ZfOTPhVOrNbaKDAqf_Ur_V5YPY464RoBRIBXothVYfVSDC2ywid5PxCqeoPkJMk0Gd9ua4eL6bjllu33PZEXiztrx4637BPRJ0X2-xCUxradkMzYJi_1qPeU5FOxklzOH5A8jxzjrNxsRSrPVbIyLZumnR0fHUXhiAKHjUg0ukwCOm2l_7T19jptddimoM2fat2aACG4x6ND1vM6HoXHU0eD-kPyQe5xBxloadLtMh5wBsEMEomAU6lzXCJVjszCrWCv3UuLm_WEv3Jxp-a14UUJt0hkuTmOcfutc9PtOaPjysS7Z0EbgV9D3MSg23j_x_Tw6DWej1Gsn1OfoZ07m-rqiWSCQ3uHm1Qvdh1cBPuGN_9DniNLNZMf2phbLrOLdEktR5vgXNOqU9hMfKyv9OhfxktZswck9_Sw5tbAXvcO5TOKyKHv8Vcz-DeBwyA..png','https://cdn.discordapp.com/attachments/1023930878705008720/1082285687681855508/received_341977998092802.jpg','https://cdn.discordapp.com/attachments/1064459479569154079/1101390790183358507/image.png','https://cdn.discordapp.com/attachments/1023930878705008720/1101324477763178676/dbb7768214ca335cb282f9c7d942f385.png']
-document.getElementById("load-random").innerHTML = `<img src='${list[Math.floor(Math.random ()*  list.length) ]}' width='200'>`
+let list = ["./assets/img/pro.PNG","./assets/img/rel.webp",'https://files.jcmainclr.xyz/uploads/IMG_0076.JPG','https://files.jcmainclr.xyz/uploads/IMG_1709.JPG','https://files.jcmainclr.xyz/uploads/IMG_1708.JPG','https://files.jcmainclr.xyz/uploads/21.png','https://files.jcmainclr.xyz/uploads/rel.png','https://files.jcmainclr.xyz/uploads/3.jpg','https://files.jcmainclr.xyz/uploads/4.jpg','https://files.jcmainclr.xyz/uploads/5.webp','https://files.jcmainclr.xyz/uploads/rel1.png']
+document.getElementById("load-random").innerHTML = `<img src='${list[Math.floor(Math.random ()*  list.length) ]}' width='400'>`
 //pro animation
 let obeserv = new IntersectionObserver((sic) => {
   sic.forEach((entry) => {
