@@ -12,19 +12,18 @@
     <br><br>
     <br><br>
     <br><br>
-    <br><br>
+
 <div class="main">
     <h1  id="#typing"><span style="color: #fff;" class="auto-ty"></span></h1>
-    <p class="text-des">Lua | Html | Discord.js</p> 
+    <p class="text-des">Greetings, I'm (james clerick), a short moniker for a random guy who makes random programming things.</p> 
     <a href="https://github.com/JcNoobLol"class="icon"><i class="fab fa-github"></i></a>
     <a href="#"class="icon"><i class="fab fa-discord"></i>Soon</a>
-    
     <div class="main">
     <h1>Website Links:</h1>
-    <a href="https://jcnooblol.github.io/project/">Project </a>
-    <a href="https://jcnooblol.github.io/contact/">Contact Me </a>
-      <a href="https://jcnooblol.github.io/forum/">Forum </a>
-      <a href="/blog/">Blog Post </a>
+    <a href="./project">Project </a>
+    <a href="href="mailto:jamesmaniego80@gmail.com">Contact Me </a>
+      <a href="./forum/">Forum </a>
+      <a href="./blog/">Blog Post </a>
 </div>
 
 <div class="main">
@@ -44,11 +43,7 @@
         font-family: 'Ubantu',sans-serif;
     }
 .main{align-items: center;text-align: center;  }
-.show{
-    opacity: 1;
-    transform: translateY(0);
-     
-}
+
 .text-des{color: #fff;}
 .loader-wrapper {
   width: 100%;
@@ -74,20 +69,32 @@ a{
 }
 a:hover{color:aquamarine;}
 .main h1{color: #fff;}
+.hidden{
+    opacity: 0;
+   transition: all 1s;
+   filter: blur(5px);
+   transform:  translateY(-100%)
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
 </style>
 <script>
 //load a random image while website is loading ye
 let list = ["./assets/img/pro.PNG","./assets/img/rel.webp",'https://files.jcmainclr.xyz/uploads/IMG_0076.JPG','https://files.jcmainclr.xyz/uploads/IMG_1709.JPG','https://files.jcmainclr.xyz/uploads/IMG_1708.JPG','https://files.jcmainclr.xyz/uploads/21.png','https://files.jcmainclr.xyz/uploads/rel.png','https://files.jcmainclr.xyz/uploads/3.jpg','https://files.jcmainclr.xyz/uploads/4.jpg','https://files.jcmainclr.xyz/uploads/5.webp','https://files.jcmainclr.xyz/uploads/rel1.png']
 document.getElementById("load-random").innerHTML = `<img src='${list[Math.floor(Math.random ()*  list.length) ]}' width='400'>`
 //pro animation
-let obeserv = new IntersectionObserver((sic) => {
-  sic.forEach((entry) => {
-      if(entry.isIntersecting){
-          entry.target.classList.add('show')
-       }else{
-          entry.target.classList.remove('show')
-       }
-  })
-})
-let hidden = document.querySelectorAll(".main")
+let oberv = new IntersectionObserver((entires) => {
+        entires.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+            }else{
+                entry.target.classList.remove('show')
+            }
+        })
+    })
+    let hidden = document.querySelectorAll('.hidden')
+    hidden.forEach((el) =>  oberv.observe(el))
 </script>
