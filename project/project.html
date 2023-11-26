@@ -1,0 +1,71 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JcBlak -Projects</title>
+    <meta name="og:title" content="Real Project">
+    <meta   content="Yeah"  property="og:description">
+    <meta name="og:image" content="https://files.jcmainclr.xyz/uploads/main.png">
+</head>
+<body>
+    <h1 class="rel">JcBlak Projects</h1>
+    <div class="pro">
+        <h1>Main Website</h1> 
+        <a href="https://go.jcmainclr.xyz/"  target="_blank">Feel free to visit it</a>
+        <p>I make this site cause for fun yeah cause am board </p>
+        <img src="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/pro-1.PNG" alt="Main Site" width="500">
+    </div>
+    <div class="pro">
+     <h1>My friend site yeah</h1>
+     <a href="https://go.jcmainclr.xyz/kyle"  target="_blank">Feel free to visit it</a>
+     <p>I make this site cause  uh just for fun i guess yeah </p>
+     <img src="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/pro-2.PNG" alt="Real" width="500">
+    </div>
+    <div class="pro">
+     <h1>My 2nd Friend Site</h1>
+     <p>I made this website because a friend of mine started a Discord server, and yeah. .</p>
+     <a href="https://epic-gamers.oki2.repl.co/"  target="_blank">Feel free to visit it</a><br>
+     <img src="https://main.jcmainclr.xyz/new-asset/epic-gamers-site.PNG" alt="Real site" width="500"><br>
+    </div>
+    <div class="pro">
+        <h1>And Lastly my shitty website</h1>
+        <p>I make this site for dev stuff like uhh uploading image or api and etc yeah</p>
+        <img src="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/pro-3.PNG" alt="Rel" width="500"><br>
+       <a href="https://jc-blakman-rel.oki2.repl.co/" target="_blank">Real.</a>
+    </div>
+</body> 
+<style>
+    .rel{align-items: center;text-align: center;}
+    body{
+        background-color: #111;
+        color: #FFF;
+        font-family: 'Roboto',sans-serif;
+    }
+    .pro {
+   
+ 
+    opacity: 0;
+    transition: all 2s;
+    transform: translateY(-100%);
+}
+.show{opacity: 1; transform: translateY(0);}
+.pro {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+</style>
+<script>
+    let oberv = new IntersectionObserver((entires) => {
+        entires.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+            }else{
+                entry.target.classList.remove('show')
+            }
+        })
+    })
+    let hidden = document.querySelectorAll('.pro')
+    hidden.forEach((el) =>  oberv.observe(el))
+    </script>
