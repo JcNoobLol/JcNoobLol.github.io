@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/forum_logo.png">
 </head>
+
 <body>
 <div class="main">
   <a href="/">
@@ -106,4 +107,12 @@ var content = document.getElementById("content").value;
 var author = document.getElementById("author").value
 saveBlogPost(title, content,author,formattedDate);
 });
+function isOldIE() {
+    var userAgent = window.navigator.userAgent;
+    return userAgent.indexOf('MSIE') > -1 || userAgent.indexOf('Trident/') > -1;
+}
+if (isOldIE()) {
+ window.location.href('/not_suppported.html')
+  
+}
 </script>

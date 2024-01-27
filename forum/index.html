@@ -6,7 +6,7 @@
     <script src="https://kit.fontawesome.com/1dba893193.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="https://jc-blakman-rel.oki2.repl.co/wp-content/2023/all_files/forum_logo.png">
 </head>
-
+<script src="https://files.jcmainclr.xyz/scripts/loader.js"  defer></script>
 <body> 
   <div class="main">
     <p>main<span style="color:cornflowerblue">jcmainclr.xyz</span></p>
@@ -130,6 +130,14 @@
     })
     let hidden = document.querySelectorAll('.forum')
     hidden.forEach((el) =>  oberv.observe(el))
+    function isOldIE() {
+    var userAgent = window.navigator.userAgent;
+    return userAgent.indexOf('MSIE') > -1 || userAgent.indexOf('Trident/') > -1;
+}
+if (isOldIE()) {
+ window.location.href('/not_suppported.html')
+  
+}
   </script>
 </body>
 

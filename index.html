@@ -18,6 +18,7 @@
   <meta name="og:color" content="#a3005a">
 </head>
 <script src="https://files.jcmainclr.xyz/scripts/loader.js"  defer></script>
+
 <body>
     <br><br>
  
@@ -70,3 +71,13 @@ a{
 a:hover{color:aquamarine;}
 .main h1{color: #fff;}
 </style>
+<script>
+    function isOldIE() {
+    var userAgent = window.navigator.userAgent;
+    return userAgent.indexOf('MSIE') > -1 || userAgent.indexOf('Trident/') > -1;
+}
+if (isOldIE()) {
+ window.location.href('/not_suppported.html')
+  
+}
+</script>
