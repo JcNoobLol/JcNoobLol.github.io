@@ -67,6 +67,14 @@
     }
 </style>
 <script>
+  function isOldIE() {
+    var userAgent = window.navigator.userAgent;
+    return userAgent.indexOf('MSIE') > -1 || userAgent.indexOf('Trident/') > -1;
+}
+if (isOldIE()) {
+ window.location.href('/not_suppported.html')
+  
+}
     // Initialize Firebase
     var firebaseConfig = {
       apiKey: "AIzaSyB1quMmhEC8DpoVZkymuL2dBd0wxXXMll0",
@@ -130,14 +138,7 @@
     })
     let hidden = document.querySelectorAll('.forum')
     hidden.forEach((el) =>  oberv.observe(el))
-    function isOldIE() {
-    var userAgent = window.navigator.userAgent;
-    return userAgent.indexOf('MSIE') > -1 || userAgent.indexOf('Trident/') > -1;
-}
-if (isOldIE()) {
- window.location.href('/not_suppported.html')
-  
-}
+    
   </script>
 </body>
 
