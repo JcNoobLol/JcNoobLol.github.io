@@ -29,9 +29,10 @@
     <a href="./forum/">Forum </a>
     <h1  id="#typing"><span style="color: #fff;" class="auto-ty"></span></h1>
     <p class="text-des">Greetings, I'm (james clerick), a short moniker for a random guy who makes random programming things.</p> 
+  <div id="spotify">
     <h1><img src='https://raw.githubusercontent.com/JcNoobLol/JcNoobLol.github.io/main/new-asset/spotify.png' width="50">Spotify</h1>
-    <a href="https://spotify-github-profile.vercel.app/api/view?uid=odul82kwgnci0steg1h0nftsz&redirect=true" class="music">
-    <img src="https://spotify-github-profile.vercel.app/api/view.svg?uid=odul82kwgnci0steg1h0nftsz&cover_image=true&theme=novatorem&show_offline=true&background_color=520000&bar_color=53b14f&bar_color_cover=true">
+    
+</div>
 </a>
 </div>
 
@@ -80,4 +81,23 @@ if (isOldIE()) {
  window.location.href('/not_suppported.html')
   
 }
+
+fetch('https://api.jcmainclr.xyz/api/v3/track') .then(response => response.json())
+  .then(data => {
+    const currentlyPlayingDiv = document.getElementById('spotify');
+    const { name, artist, album, image } = data;
+    const imageUrl = image ? image : 'placeholder.jpg'; // Use a placeholder image if no image is available
+    const html = `
+      <h2>${name}</h2>
+      <h3>${artist} - ${album}</h3>
+      <img src="${imageUrl}" alt="${name} album cover">
+    `;
+    currentlyPlayingDiv.innerHTML = html;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // Display an error message on the page
+    const currentlyPlayingDiv = document.getElementById('spotify');
+    currentlyPlayingDiv.innerHTML = '<p>Error fetching currently playing track</p>';
+  })
 </script>
